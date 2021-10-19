@@ -5,5 +5,6 @@ public class Main {
 		System.out.println(new Circle());
 		System.out.println(new Triangle());
 		System.out.println(new Ellipse());
+		System.out.println(new Square());
 	}
 }
