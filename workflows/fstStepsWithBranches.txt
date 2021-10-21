@@ -1,0 +1,35 @@
+## Erzuegen eines neuen Branches um unabhängig vom master-Branch arbeiten zu können und späterer Zusammenführung beider Branches ## merge in master-Branch
+git checkout -b <newBranch>
+# -b erzeugt einen neuen git-branch
+
+git push --set-upstream origin <newBranch>
+# definiert den upstream vomn <newBranch> für künftige push-Befehle
+
+## Beseitigen eiens bugs am Master-Branch während am featurebranch <newBranch> gearbeitet wird
+git checkout master
+git commit -a -m 'bugfix for bug nnn, check for negaitive numbers'
+# git meldet Start des Commit-Hashtags z.B. [master 0fc361d]
+git push
+
+## Rückkehr zum feature-Branch <newBranch> mit Übernahme des bugfixes aus dem master-Branch
+git checkout <newBranch>
+# nur den Commit des Bugfixes vom master-Branch übernhemen
+git cherry-pic 0fc361d
+#Abschluss der Arbeit am feature-Branch
+git commit -a -m 'final tests for new feature done'
+git push
+
+## Rückkerh zum master-Branch und Zusammenführung (merge feature-Branch in master-Branch)
+git checkout master
+git merge <newBranch>
+# Hier könnnen Merge-Konflikte auftreten
+# Lisde der betroffenen Dateien
+git status
+# die betroffenen Passagen sind mit <<< <Variante1> === <Variante2> >>>> gekennzeichnet
+# für eine Variante entscheiden, die MArkieurungen und die andere Variante entfernen
+# abschleißender Commit nach Auflösung aller Konflikte
+git commit -a -m 'resolved merge conflicts in ...'
+
+#Soll der feature-Branch danach gelöscht werden:
+git branch -d <newBranch>
+
