@@ -1,5 +1,5 @@
 ### Erzuegen eines neuen Branches um unabhängig vom master-Branch arbeiten zu können 
-### späterer Zusammenführung beider Branches ## merge in master-Branch
+### späterer Zusammenführung beider Branches (merge in master-Branch)
 # -b erzeugt einen neuen git-branch
 git checkout -b <newBranch>
 
