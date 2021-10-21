@@ -1,9 +1,10 @@
-## Erzuegen eines neuen Branches um unabhängig vom master-Branch arbeiten zu können und späterer Zusammenführung beider Branches ## merge in master-Branch
-git checkout -b <newBranch>
+### Erzuegen eines neuen Branches um unabhängig vom master-Branch arbeiten zu können 
+### späterer Zusammenführung beider Branches ## merge in master-Branch
 # -b erzeugt einen neuen git-branch
+git checkout -b <newBranch>
 
+#  upstream vomn <newBranch> für künftige push-Befehle definieren
 git push --set-upstream origin <newBranch>
-# definiert den upstream vomn <newBranch> für künftige push-Befehle
 
 ## Beseitigen eiens bugs am Master-Branch während am featurebranch <newBranch> gearbeitet wird
 git checkout master
